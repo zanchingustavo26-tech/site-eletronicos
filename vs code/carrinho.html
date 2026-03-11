@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<h3>Cupom de desconto</h3>
+
+<input type="text" id="cupom" placeholder="Digite o cupom">
+
+<button onclick="aplicarCupom()">Aplicar</button>
+<head>
+
+<title>Carrinho</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+font-family:Arial;
+background:#f5f5f5;
+}
+
+.carrinho-container{
+width:80%;
+margin:auto;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+.produto-carrinho{
+display:flex;
+align-items:center;
+justify-content:space-between;
+border-bottom:1px solid #ddd;
+padding:15px;
+}
+
+.produto-carrinho img{
+width:90px;
+border-radius:5px;
+}
+
+.info{
+flex:1;
+margin-left:20px;
+}
+
+.quantidade button{
+padding:5px 10px;
+font-size:16px;
+}
+
+.total{
+text-align:right;
+font-size:22px;
+margin-top:20px;
+}
+
+.finalizar{
+display:block;
+margin-top:20px;
+background:green;
+color:white;
+padding:15px;
+text-align:center;
+border-radius:6px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1 style="text-align:center;">🛒 Seu Carrinho</h1>
+
+<div class="carrinho-container" id="listaCarrinho"></div>
+
+<div class="carrinho-container total">
+Total: R$ <span id="total">0</span>
+</div>
+
+<div class="carrinho-container">
+<div class="finalizar" onclick="window.location.href='pagamento.html'">
+💳 Finalizar Compra
+</div>
+</div>
+
+<script>
+
+let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+let lista = document.getElementById("listaCarrinho");
+
+let total = 0;
+
+function atualizarCarrinho(){
+
+lista.innerHTML="";
+total=0;
+
+carrinho.forEach((produto,index)=>{
+
+let div=document.createElement("div");
+
+div.className="produto-carrinho";
+
+div.innerHTML=`
+
+<img src="${produto.imagem}">
+
+<div class="info">
+<h3>${produto.nome}</h3>
+<p>R$ ${produto.valor}</p>
+</div>
+
+<div class="quantidade">
+<button onclick="diminuir(${index})">-</button>
+<span>${produto.qtd}</span>
+<button onclick="aumentar(${index})">+</button>
+</div>
+
+<div>
+R$ ${produto.valor * produto.qtd}
+</div>
+
+<button onclick="remover(${index})">🗑</button>
+
+`;
+
+lista.appendChild(div);
+
+total += produto.valor * produto.qtd;
+
+});
+
+document.getElementById("total").innerText = total;
+
+localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+}
+
+function aumentar(index){
+
+carrinho[index].qtd++;
+
+atualizarCarrinho();
+
+}
+
+function diminuir(index){
+
+if(carrinho[index].qtd > 1){
+carrinho[index].qtd--;
+}
+
+atualizarCarrinho();
+
+}
+
+function remover(index){
+
+carrinho.splice(index,1);
+
+atualizarCarrinho();
+
+}
+
+atualizarCarrinho();
+
+</script>
+<script>
+
+function aplicarCupom(){
+
+let cupom = document.getElementById("cupom").value;
+
+let total = parseFloat(document.getElementById("total").innerText);
+
+if(cupom == "DESCONTO10"){
+
+let novoTotal = total * 0.9;
+
+document.getElementById("total").innerText = novoTotal.toFixed(2);
+
+alert("Cupom aplicado!");
+
+}else{
+
+alert("Cupom inválido");
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>

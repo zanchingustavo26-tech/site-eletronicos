@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>GameStore</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+<div style="text-align:center;padding:60px;color:white;">
+
+<h1>Cheats Premium para Jogos</h1>
+
+<p>Melhore sua gameplay com nossas ferramentas profissionais</p>
+
+</div>
+
+<h1>ZANCCA CHEATS</h1>
+
+<div class="carrinho" onclick="window.location.href='carrinho.html'">
+🛒 Carrinho <span id="contador">0</span>
+</div>
+
+</header>
+
+<input type="text" id="pesquisa" placeholder="Pesquisar produto..." onkeyup="buscarProduto()">
+
+<div class="produtos">
+
+<div class="produto item">
+
+<img src="https://via.placeholder.com/200">
+
+<h3>Aimbot Pro</h3>
+
+<p><b>Jogos compatíveis:</b></p>
+<p>Counter-Strike 2<br>Valorant<br>Call of Duty</p>
+
+<div class="estrelas">⭐⭐⭐⭐⭐</div>
+
+<p class="preco-antigo">R$ 120</p>
+<p class="preco">R$ 89</p>
+
+<button onclick="adicionarCarrinho('Aimbot Pro',89,'https://via.placeholder.com/200')">
+Comprar
+</button>
+
+</div>
+
+
+<div class="produto item">
+
+<img src="https://via.placeholder.com/200">
+
+<h3>Wallhack Vision</h3>
+
+<p><b>Jogos compatíveis:</b></p>
+<p>CS2<br>Rainbow Six Siege<br>Warzone</p>
+
+<div class="estrelas">⭐⭐⭐⭐</div>
+
+<p class="preco-antigo">R$ 100</p>
+<p class="preco">R$ 69</p>
+
+<button onclick="adicionarCarrinho('Wallhack Vision',69,'https://via.placeholder.com/200')">
+Comprar
+</button>
+
+</div>
+
+
+<div class="produto item">
+
+<img src="https://via.placeholder.com/200">
+
+<h3>ESP Radar</h3>
+
+<p><b>Jogos compatíveis:</b></p>
+<p>Fortnite<br>Warzone<br>Apex Legends</p>
+
+<div class="estrelas">⭐⭐⭐⭐⭐</div>
+
+<p class="preco-antigo">R$ 80</p>
+<p class="preco">R$ 49</p>
+
+<button onclick="adicionarCarrinho('ESP Radar',49,'https://via.placeholder.com/200')">
+Comprar
+</button>
+
+</div>
+
+
+<div class="produto item">
+
+<img src="https://via.placeholder.com/200">
+
+<h3>No Recoil Script</h3>
+
+<p><b>Jogos compatíveis:</b></p>
+<p>Rust<br>PUBG<br>Escape From Tarkov</p>
+
+<div class="estrelas">⭐⭐⭐⭐</div>
+
+<p class="preco-antigo">R$ 70</p>
+<p class="preco">R$ 39</p>
+
+<button onclick="adicionarCarrinho('No Recoil Script',39,'https://via.placeholder.com/200')">
+Comprar
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+function atualizarContador(){
+
+let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+document.getElementById("contador").innerText = carrinho.length;
+
+}
+
+function adicionarCarrinho(nome,valor,imagem){
+
+let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+carrinho.push({
+nome:nome,
+valor:valor,
+imagem:imagem,
+qtd:1
+});
+
+localStorage.setItem("carrinho",JSON.stringify(carrinho));
+
+atualizarContador();
+
+alert("Produto adicionado ao carrinho");
+
+}
+
+function buscarProduto(){
+
+let input = document.getElementById("pesquisa").value.toLowerCase();
+
+let produtos = document.getElementsByClassName("item");
+
+for(let i=0;i<produtos.length;i++){
+
+let nome = produtos[i].innerText.toLowerCase();
+
+produtos[i].style.display = nome.includes(input) ? "block" : "none";
+
+}
+
+}
+
+atualizarContador();
+
+
+</script>
+<div class="rodape-info">
+
+<h2>Suporte</h2>
+<p>Se precisar de ajuda com instalação ou ativação dos cheats, entre em contato com nosso suporte.</p>
+<p>Email: suporte@gamestore.com</p>
+
+<h2>Contato</h2>
+<p>Discord: GameStore#1234</p>
+<p>WhatsApp: (00) 00000-0000</p>
+
+</div>
+<footer class="footer">
+
+<div class="footer-container">
+
+<div class="footer-col">
+<h3>GameStore</h3>
+<p>Loja especializada em softwares gamer e ferramentas para melhorar sua gameplay.</p>
+</div>
+
+<div class="footer-col">
+<h3>Informações</h3>
+<a href="termos.html">Termos de Uso</a>
+<a href="reembolso.html">Política de Reembolso</a>
+<a href="garantia.html">Garantia</a>
+</div>
+
+<div class="footer-col">
+<h3>Contato</h3>
+<p>Email: suporte@gamestore.com</p>
+<p>Discord: GameStore#1234</p>
+</div>
+
+</div>
+
+<p class="copyright">© 2026 GameStore - Todos os direitos reservados</p>
+
+</footer>
+</body><div class="fundo-principal"></div>
+
+
+
+</html>

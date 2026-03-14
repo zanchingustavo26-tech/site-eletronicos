@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Zanchin Smart Tech</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+ <div class="banner-loja">
+
+<h1>ZANCHIN ELETRÔNICOS</h1>
+<p>Os melhores dispositivos móveis com os melhores preços</p>
+
+</div>   
+<h1></h1>
+
+<nav>
+    <input type="text" id="pesquisa" placeholder="Pesquisar produto..." onkeyup="buscarProduto()">
+<a href="#home">Início</a>
+<a href="#produtos">Produtos</a>
+<a href="#pagamento">Pagamentos</a>
+<a href="#contato">Contato</a>
+<a href="#suporte">Suporte</a>
+</nav>
+</header>
+
+<div class="carrinho" onclick="window.location.href='carrinho.html'" style="cursor:pointer;">
+🛒 Carrinho
+</div>
+<section id="home" class="principal">
+
+<img src=https://img.freepik.com/vetores-premium/modelo-de-logotipo-eletronico_883220-741.jpg?semt=ais_hybrid&w=740&q=80>
+
+<div class="texto">
+<h2>Eletrônicos e Móveis</h2>
+<p>
+Aqui você encontra computadores, celulares, cadeiras gamers e móveis modernos
+com os melhores preços.
+</p>
+</div>
+
+
+</section>
+<h3>Calcular frete</h3>
+
+<input type="text" id="cep" placeholder="Digite seu CEP">
+
+<button onclick="calcularFrete()">Calcular</button>
+
+<p id="resultadoFrete"></p>
+
+</div>
+
+<section id="produtos">
+
+<h2>Nossos Produtos</h2>
+
+<div class="produtos">
+<div class="produto item">
+<span class="promocao">PROMOÇÃO</span>
+<img src=https://a-static.mlcdn.com.br/%7Bw%7Dx%7Bh%7D/smartphone-samsung-galaxy-s23-128gb-preto-5g-8gb-ram-61-cam-tripla-selfie-12mp/magazineluiza/232853700/e9fd12e9a66f2797bce34c5169369937.jpg>
+<h3>Samsung Galaxy S23</h3>
+<div class="avaliacao">
+⭐⭐⭐⭐⭐
+</div>
+<p>Smartphone premium com câmera avançada.</p>
+<p class="preco-antigo">R$ 4.999</p>
+<p class="preco-novo">R$ 3.899,90</p>
+<button onclick="irPagamento()">Comprar</button>
+<button onclick="adicionarCarrinho('Galaxy S23',3899,'galaxy.jpg')">
+🛒 Adicionar ao carrinho
+</button>
+</div>
+
+
+<div class="produto item">
+<span class="promocao">PROMOÇÃO</span>
+<img src=https://http2.mlstatic.com/D_NQ_NP_970459-MLA100037896099_122025-O.webp>
+<h3>Xiaomi Redmi Note 12</h3>
+<div class="avaliacao">
+⭐⭐⭐⭐☆
+</div>
+<p>Celular com ótima bateria e desempenho.</p>
+<p class="preco-antigo">R$ 2.199</p>
+<p class="preco-novo">R$ 1.599,90</p>
+<button onclick="irPagamento()">Comprar</button>
+<button onclick="adicionarCarrinho('Redmi Note 12',1599,'redmi.jpg')">
+🛒 Adicionar ao carrinho
+</button>
+</div>
+
+
+<div class="produto item">
+<span class="promocao">PROMOÇÃO</span>
+<img src=https://imgs.pontofrio.com.br/1576688127/1xg.jpg>
+<h3>Apple Watch Series 8</h3>
+<div class="avaliacao">
+⭐⭐⭐⭐⭐
+</div>
+<p>Relógio inteligente com monitoramento de saúde.</p>
+<p class="preco-antigo">R$ 3.599</p>
+<p class="preco-novo">R$ 2.999,90</p>
+<button onclick="irPagamento()">Comprar</button>
+<button onclick="adicionarCarrinho('Apple Watch',2999,'watch.jpg')">
+🛒 Adicionar ao carrinho
+</button>
+</div>
+
+
+<div class="produto item">
+<span class="promocao">PROMOÇÃO</span>
+<img src=https://leoscherer.com.br/wp-content/uploads/2023/02/MQD83.jpeg>
+<h3>AirPods Pro 2 GEN</h3>
+<div class="avaliacao">
+⭐⭐⭐⭐☆
+</div>
+<p>Fone Bluetooth com cancelamento de ruído.</p>
+<p class="preco-antigo">R$ 1.999</p>
+<p class="preco-novo">R$ 1.499,90</p>
+<button onclick="irPagamento()">Comprar</button>
+<button onclick="adicionarCarrinho('AirPods Pro',1499,'airpods.jpg')">
+🛒 Adicionar ao carrinho
+</button>
+</div>
+
+
+<div class="produto item">
+<span class="promocao">PROMOÇÃO</span>
+<img src=https://static.kadri.com.br/produto/103604-MAIN.png>
+<h3>Tablet Samsung Galaxy Tab S8</h3>
+<div class="avaliacao">
+⭐⭐⭐⭐☆
+</div>
+<p>Tablet potente para trabalho e entretenimento.</p>
+<p class="preco-antigo">R$ 4.299</p>
+<p class="preco-novo">R$ 3.399,90</p>
+<button onclick="irPagamento()">Comprar</button>
+<button onclick="adicionarCarrinho('Galaxy Tab S8',3399,'tablet.jpg')">
+🛒 Adicionar ao carrinho
+</button>
+</div>
+
+
+<div class="produto item">
+<span class="promocao">PROMOÇÃO</span>
+<img src="https://images.tcdn.com.br/img/img_prod/993134/power_bank_20000mah_a_gold_bte_02_preto_com_verde_carregador_portatil_3_1a_alta_velocidade_1600_1_0bf908db4c9c9f714c31a7b223c1b71c.jpg">
+<h3>Power Bank 20000mAh</h3>
+<div class="avaliacao">
+⭐⭐⭐⭐☆
+</div>
+<p>Bateria portátil de alta capacidade.</p>
+<p class="preco-antigo">R$ 299</p>
+<p class="preco-novo">R$ 189,90</p>
+<button onclick="irPagamento()">Comprar</button>
+<button onclick="adicionarCarrinho('Power Bank',189,'powerbank.jpg')">
+🛒 Adicionar ao carrinho
+</button>
+</div>
+
+
+
+
+<div class="produto item">
+<span class="promocao">PROMOÇÃO</span>
+<img src=https://www.fujioka.com.br/arquivos/ids/221543-1000-1000/p_56652_alta_1.png?v=638128426267670000>
+<h3>Monitor Gamer AOC Viper 23,8", 165Hz, FHD VA, FreeSync, Widescreen, 1ms</h3>
+<div class="avaliacao">
+⭐⭐⭐⭐⭐
+</div>
+<p>Monitor ideal para jogos competitivos.</p>
+<p class="preco-antigo">R$ 1.899</p>
+<p class="preco-novo">R$ 1.399,90</p>
+<button onclick="irPagamento()">Comprar</button>
+<button onclick="adicionarCarrinho('Monitor Gamer',1399,'monitor.jpg')">
+🛒 Adicionar ao carrinho
+</button>
+</div>
+
+
+<div class="produto item">
+<span class="promocao">PROMOÇÃO</span>
+<img src=https://customice.com.br/wp-content/uploads/2025/03/soaIIbnaMWKUbmcB4VbL3jW55RNjPUl5YN5.jpg>
+<h3>Teclado Mecânico Gamer Wooting 60HE+, RGB, 61 Teclas, Layout 60%</h3>
+<div class="avaliacao">
+⭐⭐⭐⭐☆
+</div>
+<p>Teclado mecânico com iluminação RGB.</p>
+<p class="preco-antigo">R$ 2.499,99</p>
+<p class="preco-novo">R$ 1.709,91</p>
+<button onclick="irPagamento()">Comprar</button>
+<button onclick="adicionarCarrinho('Teclado Gamer',329,'teclado.jpg')">
+🛒 Adicionar ao carrinho
+</button>
+</div>
+
+
+<div class="produto item">
+<span class="promocao">PROMOÇÃO</span>
+<img src=https://m.media-amazon.com/images/I/51m-Eyn-MOL._AC_SX679_.jpg>
+<h3>Mouse Gamer Sem Fio Logitech G PRO X SUPERLIGHT 2 com Tecnologia LIGHTSPEED,</h3>
+<div class="avaliacao">
+⭐⭐⭐⭐☆
+</div>
+<p>Mouse preciso para jogos competitivos.</p>
+<p class="preco-antigo">R$ 929,98</p>
+<p class="preco-novo">R$ 779,98</p>
+<button onclick="irPagamento()">Comprar</button>
+<button onclick="adicionarCarrinho('Mouse Gamer',249,'mouse.jpg')">
+🛒 Adicionar ao carrinho
+</button>
+</div>
+
+
+<div class="produto item">
+<span class="promocao">PROMOÇÃO</span>
+<img src=https://images1.kabum.com.br/produtos/fotos/483041/fone-de-ouvido-gamer-hyperx-cloud-earbuds-ii-com-microfone-vermelho-705l8aa_1701173989_gg.jpg>
+<h3>Fone de Ouvido Gamer HyperX Cloud Earbuds II, Com Microfone</h3>
+<div class="avaliacao">
+⭐⭐⭐⭐☆
+</div>
+<p>Fone de ouvido intra auricular com áudio surround para jogos.</p>
+<p class="preco-antigo">R$ 189,99</p>
+<p class="preco-novo">R$ 138,70</p>
+<button onclick="irPagamento()">Comprar</button>
+<button onclick="adicionarCarrinho('Headset Gamer',399,'headset.jpg')">
+🛒 Adicionar ao carrinho
+</button>
+</div>
+
+
+<div class="produto item">
+<span class="promocao">PROMOÇÃO</span>
+<img src=https://m.media-amazon.com/images/I/51NbhnIWkmL._AC_UF894,1000_QL80_.jpg>
+<h3>Cadeira Gamer Fox Racer Rgb Branca Com Iluminação </h3>
+<div class="avaliacao">
+⭐⭐⭐⭐☆
+</div>
+<p>Cadeira gamer para conforto em longas sessões.</p>
+<p class="preco-antigo">R$ 989,23</p>
+<p class="preco-novo">R$ 699,90</p>
+<button onclick="irPagamento()">Comprar</button>
+<button onclick="adicionarCarrinho('Cadeira Gamer',1099,'cadeira.jpg')">
+🛒 Adicionar ao carrinho
+</button>
+</div>
+
+
+<div class="produto item">
+<span class="promocao">PROMOÇÃO</span>
+<img src=https://images.kabum.com.br/produtos/fotos/sync_mirakl/593895/xlarge/Notebook-Gamer-Acer-Nitro-V15-Intel-i5-13420H-8GB-RAM-DDR5-Placa-RTX-2050-4GB-SSD-512GB-Tela-FHD-De-15-6-144Hz-Linux-Gutta-Anv15-51-50kd_1768780422.jpg>
+<h3>Notebook Gamer Acer Nitro V15</h3>
+<div class="avaliacao">
+⭐⭐⭐⭐☆
+</div>
+<p>Notebook de alto desempenho para jogos e trabalho.</p>
+<p class="preco-antigo">R$ 4.859</p>
+
+<p class="preco-novo">R$ 3.700,99</p>
+<button onclick="irPagamento()">Comprar</button>
+<button onclick="adicionarCarrinho('Notebook Gamer',3500,'notebook.jpg')">
+🛒 Adicionar ao carrinho
+</button>
+</a>
+</div>
+
+
+<div class="produto item">
+<img src=https://images6.kabum.com.br/produtos/fotos/925356/iphone-17-pro-max-apple-256gb-48mp-tela-6-9-super-retina-xdr-laranja-cosmico_1757696972_gg.jpg>
+<h3>iPhone 17 Pro Max (256 GB)</h3>
+<div class="avaliacao">
+⭐⭐⭐⭐⭐
+</div>
+<p>Celular de ultima geração.</p>
+<p class="preco">R$ 10.124,10</p>
+<button onclick="irPagamento()">Comprar</button>
+<button onclick="adicionarCarrinho('iPhone 14',5000,'iphone.jpg')">
+🛒 Adicionar ao carrinho
+</button>
+</a>
+</div>
+
+
+<div class="produto item">
+
+<span class="promocao">PROMOÇÃO</span>
+<img src=https://img.terabyteshop.com.br/produto/g/gabinete-gamer-hayom-gb1791-aquario-mini-tower-vidro-temperado-m-atx-com-4-fans-sem-fonte-branco_243515.jpg>
+<h3>Gabinete Gamer Branco GB1791 4 fans RGB </h3>
+<div class="avaliacao">
+⭐⭐⭐⭐⭐
+</div>
+<p>Melhor e mais bonito gabinete do mercado.</p>
+<p class="preco-antigo">R$ 288,99</p>
+
+<p class="preco-novo">R$ 187,45</p>
+<button onclick="irPagamento()">Comprar</button>
+<button onclick="adicionarCarrinho('cadeira gamer',245,'cadeira.jpg')">
+🛒 Adicionar ao carrinho
+</button>
+</a>
+</div>
+
+
+<div class="produto item">
+<img src=https://cafecomreview.com.br/wp-content/uploads/2021/03/fone-cloud-II-wireless-caixa.jpg.webp>
+<h3>HEADSET GAMER HYPERX CLOUD II KHX-HSCP-RD KINGSTON </h3>
+<div class="avaliacao">
+⭐⭐⭐☆☆
+</div>
+<p>Mesa moderna ideal para escritório ou home office.</p>
+<p class="preco">R$ 533,78</p>
+<button onclick="irPagamento()">Comprar</button>
+<button onclick="adicionarCarrinho('Mesa gamer',450,'mesa.jpg')">
+🛒 Adicionar ao carrinho
+</button>
+</a>
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+</section>
+
+
+<section id="contato">
+
+<h2>Contato</h2>
+
+<form>
+
+<label>Nome</label>
+<input type="text">
+
+<label>Email</label>
+<input type="email">
+
+<label>Mensagem</label>
+<textarea></textarea>
+
+<button type="submit">Enviar</button>
+
+</form>
+
+</section>
+
+
+<section id="suporte">
+
+<h2>Suporte</h2>
+
+<p>Email: suporte@zanchinsmarttech.com</p>
+<p>WhatsApp: (43) 99197-9162</p>
+
+</section>
+
+
+<footer>
+
+<p>© 2026 Zanchin Smart Tech</p>
+
+</footer>
+<script>
+
+function adicionarCarrinho(){
+let contador = document.getElementById("contador");
+contador.innerText = parseInt(contador.innerText) + 1;
+}
+
+</script>
+
+</script>
+</body>
+</html>
+<script>
+
+function calcularFrete(){
+
+let cep = document.getElementById("cep").value;
+
+let frete = Math.floor(Math.random() * 40) + 10;
+
+document.getElementById("resultadoFrete").innerText =
+"Frete estimado: R$ " + frete + " - entrega em 5 dias";
+
+}
+
+</script>
+<script>
+
+function buscarProduto(){
+
+let input = document.getElementById("pesquisa").value.toLowerCase();
+let produtos = document.getElementsByClassName("item");
+
+for(let i = 0; i < produtos.length; i++){
+
+let nome = produtos[i].innerText.toLowerCase();
+
+if(nome.includes(input)){
+produtos[i].style.display = "block";
+}else{
+produtos[i].style.display = "none";
+}
+
+}
+
+}
+
+</script>
+<script>
+
+function adicionarCarrinho(nome, valor, imagem){
+
+let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+carrinho.push({
+nome:nome,
+valor:valor,
+imagem:imagem,
+qtd:1
+});
+
+localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+alert("Produto adicionado ao carrinho");
+
+}
+
+</script>
+<script>
+function irPagamento(){
+window.location.href="pagamento.html";
+}
+</script>
+

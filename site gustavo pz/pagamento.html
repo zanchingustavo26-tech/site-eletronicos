@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Pagamento</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+.metodo{
+display:none;
+margin-top:20px;
+padding:20px;
+background:#f4f4f4;
+border-radius:8px;
+}
+
+.metodo input{
+display:block;
+margin:10px 0;
+padding:10px;
+width:250px;
+}
+
+.pagamentos button{
+margin:10px;
+padding:12px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<h1>Área de Pagamento</h1>
+</header>
+
+
+    <section class="checkout">
+
+        <h2>💳 Finalizar pagamento</h2>
+        
+        <div class="box-pagamento">
+        
+        <!-- RESUMO -->
+        <div class="resumo">
+        <h3>🧾 Resumo do pedido</h3>
+        <div id="lista-produtos"></div>
+        <p class="total">Total: R$ <span id="total"></span></p>
+        </div>
+        
+        <!-- PAGAMENTO -->
+        <div class="pagamento">
+        
+        <h3>Escolha a forma de pagamento</h3>
+        
+        <label class="opcao">
+        <input type="radio" name="pagamento" onclick="mostrarPagamento('pix')">
+        ⚡ PIX <span class="desconto">(5% OFF)</span>
+        </label>
+        
+        <label class="opcao">
+        <input type="radio" name="pagamento" onclick="mostrarPagamento('cartao')">
+        💳 Cartão de Crédito
+        </label>
+        
+        <label class="opcao">
+        <input type="radio" name="pagamento" onclick="mostrarPagamento('boleto')">
+        🏦 Boleto
+        </label>
+        
+        <!-- PIX -->
+        <div id="pix" class="metodo">
+        <img id="qr-pix" width="180">
+        <p>Pague escaneando o QR Code</p>
+        </div>
+        
+        <!-- CARTÃO -->
+        <div id="cartao" class="metodo">
+        
+        <input type="text" placeholder="Número do cartão">
+        <input type="text" placeholder="Nome no cartão">
+        
+        <div class="linha">
+        <input type="text" placeholder="Validade">
+        <input type="text" placeholder="CVV">
+        </div>
+        
+        <label>Parcelamento:</label>
+        <select id="parcelas"></select>
+        
+        <button class="btn-pagar-cartao">Pagar com Cartão</button>
+        
+        </div>
+        
+        <!-- BOLETO -->
+        <div id="boleto" class="metodo">
+        <button onclick="gerarBoleto()">Gerar boleto</button>
+        <p id="codigoBoleto"></p>
+        </div>
+        
+        <button onclick="finalizarCompra()" class="btn-finalizar">
+        Finalizar Compra
+        </button>
+        
+        <p class="seguro">🔒 Compra 100% segura</p>
+        
+        </div>
+        
+        </div>
+        
+        </section>
+
+
+
+<br>
+
+
+
+</section>
+
+
+<script>
+
+function mostrarPagamento(tipo){
+
+document.getElementById("pix").style.display="none";
+document.getElementById("cartao").style.display="none";
+document.getElementById("boleto").style.display="none";
+
+document.getElementById(tipo).style.display="block";
+
+}
+
+</script>
+<script>
+
+function gerarBoleto(){
+
+let numero = "";
+
+for(let i=0;i<47;i++){
+numero += Math.floor(Math.random()*10);
+}
+
+document.getElementById("codigoBoleto").innerText = numero;
+
+}
+
+</script>
+<script src="script.js"></script>
+<script>
+    carregarPagamento();
+    carregarParcelas();
+    </script>
+</body>
+</html>
+
